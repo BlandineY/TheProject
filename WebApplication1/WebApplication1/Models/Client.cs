@@ -13,6 +13,8 @@ namespace BoVoyage.Models
         [Key]
         public int IdClients { get; set; }
         public string Email { get; set; }
+
+
     }
 }
 

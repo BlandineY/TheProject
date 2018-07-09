@@ -13,20 +13,11 @@ namespace BoVoyage.Models
     {
         [Key]
         public int IdNumeroUnique { get; set; }
-        public string NumeroCarteBancaire { get; set; }
-        public decimal PrixTotal { get; set; }
+        public string NomAgence { get; set; }
 
-        public int NombreParticipant { get; set; }
-        public bool Assurance { get; set; }
-
-
-        [ForeignKey("IdClient")]
-        public Client Client { get; set; }
-        public int IdClient { get; set; }
-
-        [ForeignKey("IdVoyage")]
-        public Voyage Voyage { get; set; }
-        public int IdVoyage { get; set; }
+        //[ForeignKey("IdVoyage")]
+        //public Voyage Voyage { get; set; }
+        //public int IdVoyage { get; set; }
 
     }
 }
