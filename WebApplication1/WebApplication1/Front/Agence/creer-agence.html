@@ -52,7 +52,7 @@
             $.get("http://localhost:63574/api/agencevoyages/", function (data) {
                 //console.log(data);
                 for (let item of data) {
-                    $("#inputIdAgenceVoyage").append(`<option value="${item.IDAgenceVoyage}">${item.Nom}</option>`)
+                    $("#inputIdAgenceVoyage").append(`<option value="${item.IdAgenceVoyage}">${item.Nom}</option>`)
                 }
             });
 

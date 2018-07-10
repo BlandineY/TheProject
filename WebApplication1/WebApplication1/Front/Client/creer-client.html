@@ -37,11 +37,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="http://localhost:63574/Front/home.html">Home</a>
+                <a class="navbar-brand" href="http://localhost:63574/Front/Client/home.html">Home</a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="http://localhost:63574/Front/menu-voyageurs.html">Voyageurs</a></li>
+                    <li class="active"><a href="http://localhost:63574/Front/Client/menu-voyageurs.html">Voyageurs</a></li>
                     <li><a href="#">Consulter</a></li>
                     <li><a href="#">Consulter</a></li>
                     <li><a href="#">Consulter</a></li>
@@ -124,6 +124,44 @@
     </div>
 
 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $.get("http://localhost:63574/api/client/", function (data) {
+                //console.log(data);
+                for (let item of data) {
+                    $("#inputIdClient").append(`<option value="${item.IDClient}">${item.Nom}</option>`)
+                }
+            });
+
+            $("form").submit(function (ev) {
+                let obj = {
+                    Nom: $("#inputNom").val(),
+                    Prenom: $("#inputPrenom").val(),
+                    Adresse: $("#inputAdresse").val(),
+                    DateNaissance: $("#inputDateNaissance").val(),
+                    Telephone: $("#inputTelephone").val(),
+                    Email: $("#inputEmail").val(),
+                }),
+
+            $.ajax({
+                url: "http://localhost:63574/api/agencevoyages/" + $("#inputNom").val(),
+                method: 'POST',
+                data: obj,
+                success: function (data) {
+                    let ul = $('#resultat');
+                    alert(`Client enregistré avec l'ID ${data.ID}`);
+                }
+            }),
+                ev.preventDefault();
+
+        });
+           
+     </script>
 
 </body>
 </html>
