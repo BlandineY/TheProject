@@ -13,44 +13,44 @@ using BoVoyage.Models;
 
 namespace WebApplication1.Controllers
 {
-    public class ClientsController : ApiController
+    public class VoyagesController : ApiController
     {
         private BoVoyageDbContext db = new BoVoyageDbContext();
 
-        // GET: api/Clients
-        public IQueryable<Client> GetClients()
+        // GET: api/Voyages
+        public IQueryable<Voyage> GetVoyages()
         {
-            return db.Clients;
+            return db.Voyages;
         }
 
-        // GET: api/Clients/5
-        [ResponseType(typeof(Client))]
-        public IHttpActionResult GetClient(int id)
+        // GET: api/Voyages/5
+        [ResponseType(typeof(Voyage))]
+        public IHttpActionResult GetVoyage(int id)
         {
-            Client client = db.Clients.Find(id);
-            if (client == null)
+            Voyage voyage = db.Voyages.Find(id);
+            if (voyage == null)
             {
                 return NotFound();
             }
 
-            return Ok(client);
+            return Ok(voyage);
         }
 
-        // PUT: api/Clients/5
+        // PUT: api/Voyages/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutClient(int id, Client client)
+        public IHttpActionResult PutVoyage(int id, Voyage voyage)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != client.IdClient)
+            if (id != voyage.IdVoyage)
             {
                 return BadRequest();
             }
 
-            db.Entry(client).State = EntityState.Modified;
+            db.Entry(voyage).State = EntityState.Modified;
 
             try
             {
@@ -58,7 +58,7 @@ namespace WebApplication1.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ClientExists(id))
+                if (!VoyageExists(id))
                 {
                     return NotFound();
                 }
@@ -71,35 +71,35 @@ namespace WebApplication1.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Clients
-        [ResponseType(typeof(Client))]
-        public IHttpActionResult PostClient(Client client)
+        // POST: api/Voyages
+        [ResponseType(typeof(Voyage))]
+        public IHttpActionResult PostVoyage(Voyage voyage)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Clients.Add(client);
+            db.Voyages.Add(voyage);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = client.IdClient }, client);
+            return CreatedAtRoute("DefaultApi", new { id = voyage.IdVoyage }, voyage);
         }
 
-        // DELETE: api/Clients/5
-        [ResponseType(typeof(Client))]
-        public IHttpActionResult DeleteClient(int id)
+        // DELETE: api/Voyages/5
+        [ResponseType(typeof(Voyage))]
+        public IHttpActionResult DeleteVoyage(int id)
         {
-            Client client = db.Clients.Find(id);
-            if (client == null)
+            Voyage voyage = db.Voyages.Find(id);
+            if (voyage == null)
             {
                 return NotFound();
             }
 
-            db.Clients.Remove(client);
+            db.Voyages.Remove(voyage);
             db.SaveChanges();
 
-            return Ok(client);
+            return Ok(voyage);
         }
 
         protected override void Dispose(bool disposing)
@@ -111,9 +111,9 @@ namespace WebApplication1.Controllers
             base.Dispose(disposing);
         }
 
-        private bool ClientExists(int id)
+        private bool VoyageExists(int id)
         {
-            return db.Clients.Count(e => e.IdClient == id) > 0;
+            return db.Voyages.Count(e => e.IdVoyage == id) > 0;
         }
     }
 }
