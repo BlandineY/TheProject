@@ -9,10 +9,10 @@ using BoVoyage.Models;
 namespace BoVoyage.Models
 {
 
-    public class DossiersReservation
+    public class DossierReservation
     {
         [Key]
-        public int IdNumeroUnique { get; set; }
+        public int IdDossierReservation { get; set; }
         public string NumeroCarteBancaire { get; set; }
         public decimal PrixTotal { get; set; }
 

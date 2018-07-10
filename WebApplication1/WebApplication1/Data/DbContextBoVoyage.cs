@@ -5,11 +5,11 @@ using System.Linq;
 using System.Web;
 using BoVoyage.Models;
 
-namespace TodoList.Data
+namespace BoVoyage.Data
 {
     public class BoVoyageDbContext : DbContext
     {
-        public BoVoyageDbContext() : base("AJOUTER NOM BASE DE DONNEES") // Constructeur de la classe de base
+        public BoVoyageDbContext() : base("Blandine-Jonathan") // Constructeur de la classe de base
         {
         }
 
@@ -25,11 +25,8 @@ namespace TodoList.Data
 
         public DbSet<Destination> Destinations { get; set; }
 
-        public DbSet<DossiersReservation> DossiersReservations { get; set; }
+        public DbSet<DossierReservation> DossiersReservations { get; set; }
 
         public DbSet<Participant> Participants { get; set; }
-
-        public DbSet<Personne> Personnes { get; set; }
-
     }
 }

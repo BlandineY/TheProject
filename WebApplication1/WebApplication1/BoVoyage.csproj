@@ -189,18 +189,24 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\ClientsController.cs" />
     <Compile Include="Controllers\HomesController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Data\DbContextBoVoyage.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807100911148_Init.cs" />
+    <Compile Include="Migrations\201807100911148_Init.Designer.cs">
+      <DependentUpon>201807100911148_Init.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AssuranceAnnulation.cs" />
+    <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\Voyage.cs" />
     <Compile Include="Models\Personne.cs" />
     <Compile Include="Models\Participant.cs" />
-    <Compile Include="Models\DossierResevation.cs" />
+    <Compile Include="Models\DossierReservation.cs" />
     <Compile Include="Models\Destination.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Assurance.cs" />
@@ -298,6 +304,11 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201807100911148_Init.resx">
+      <DependentUpon>201807100911148_Init.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

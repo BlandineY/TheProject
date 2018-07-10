@@ -10,7 +10,6 @@ namespace BoVoyage.Models
 {
     public class Personne
     {
-
         public string Civilite { get; set; }
         public string Nom { get; set; }
         public string Prenom { get; set; }

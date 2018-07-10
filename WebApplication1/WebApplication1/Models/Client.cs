@@ -11,10 +11,8 @@ namespace BoVoyage.Models
     public class Client : Personne
     {
         [Key]
-        public int IdClients { get; set; }
+        public int IdClient { get; set; }
         public string Email { get; set; }
-
-
     }
 }
 

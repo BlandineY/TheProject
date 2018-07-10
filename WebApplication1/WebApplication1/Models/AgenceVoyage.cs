@@ -12,7 +12,7 @@ namespace BoVoyage.Models
 
     {
         [Key]
-        public int IdNumeroUnique { get; set; }
+        public int IdAgenceVoyage { get; set; }
         public string NomAgence { get; set; }
 
         //[ForeignKey("IdVoyage")]
