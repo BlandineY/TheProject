@@ -16,6 +16,7 @@ namespace BoVoyage.Models
         public string Adresse { get; set; }
         public string Telephone { get; set; }
         public System.DateTime DateNaissance { get; set; }
+        [NotMapped]
         public int Age
         {
             get
