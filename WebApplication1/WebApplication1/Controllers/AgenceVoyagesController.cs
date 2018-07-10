@@ -36,6 +36,14 @@ namespace WebApplication1.Controllers
             return Ok(agenceVoyage);
         }
 
+        //GET: api/AgenceVoyages/nom
+        [Route("{nom}")]
+        [ResponseType(typeof(AgenceVoyage))]
+        public IQueryable<AgenceVoyage> GetAgenceVoyages(string nom)
+        {
+            return db.AgenceVoyages.Where(x => x.NomAgence.Contains(nom));
+        }
+
         // PUT: api/AgenceVoyages/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutAgenceVoyage(int id, AgenceVoyage agenceVoyage)

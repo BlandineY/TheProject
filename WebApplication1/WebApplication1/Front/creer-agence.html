@@ -40,28 +40,39 @@
                 <ul id="resultat"></ul>
             </div>
         </form>
-
-        <div class="col-md-6">
-            <ul id="resultat"></ul>
-        </div>
-
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function () {
+
+            $.get("http://localhost:63574/api/agencevoyages/", function (data) {
+                //console.log(data);
+                for (let item of data) {
+                    $("#inputIdAgenceVoyage").append(`<option value="${item.IDAgenceVoyage}">${item.Nom}</option>`)
+                }
+            });
+
             $("form").submit(function (ev) {
+                    let obj = {
+                        NomAgence: $("#inputNom").val(),
+                    };
+
                 $.ajax({
-                    url: "http://localhost:63574/api/agencevoyages/",
+                    url: "http://localhost:63574/api/agencevoyages/" + $("#inputNom").val(),
                     method: 'POST',
-                    data: ,
+                    data: obj,  
                     success: function (data) {
                         let ul = $('#resultat');
                         for (let item of data) {
-                            ul.append(`<li>${item.Name}</li>`);
+                            ul.append(`<li>${item.Nom}</li>`);
                         }
                     },
                     error: function (message) {
-                        alert(message);
+                        console.log(message);
                     }
                 });
                 ev.preventDefault();
