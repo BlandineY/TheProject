@@ -14,6 +14,8 @@ namespace BoVoyage.Models
         public int IdVoyage { get; set; }
         public System.DateTime DateAller { get; set; }
         public System.DateTime DateRetour { get; set; }
+        
+        [Required(ErrorMessage = "Ce champ est obligatoire")]
         public int PlacesDisponibles { get; set; }
         public decimal TarifToutCompris { get; set; }
 
