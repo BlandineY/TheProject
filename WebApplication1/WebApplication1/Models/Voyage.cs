@@ -17,13 +17,14 @@ namespace BoVoyage.Models
         public int PlacesDisponibles { get; set; }
         public decimal TarifToutCompris { get; set; }
 
+        public int IdAgenceVoyage { get; set; }
         [ForeignKey("IdAgenceVoyage")]
         public AgenceVoyage AgenceVoyage { get; set; }
-        public int IdAgenceVoyage { get; set; }
 
+        public int IdDestination { get; set; }
         [ForeignKey("IdDestination")]
         public Destination Destination { get; set; }
-        public int IdDestination { get; set; }
+
 
     }
 }
