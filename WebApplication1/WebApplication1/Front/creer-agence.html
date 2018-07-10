@@ -40,15 +40,20 @@
                 <ul id="resultat"></ul>
             </div>
         </form>
+
+        <div class="col-md-6">
+            <ul id="resultat"></ul>
+        </div>
+
     </div>
 
     <script>
         $(document).ready(function () {
             $("form").submit(function (ev) {
-
                 $.ajax({
-                    url: "http://localhost:63574/api/agencevoyages/" + $("#inputNom").val(),
+                    url: "http://localhost:63574/api/agencevoyages/",
                     method: 'POST',
+                    data: ,
                     success: function (data) {
                         let ul = $('#resultat');
                         for (let item of data) {
