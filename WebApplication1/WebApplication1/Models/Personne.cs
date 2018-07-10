@@ -11,10 +11,14 @@ namespace BoVoyage.Models
     public class Personne
     {
         public string Civilite { get; set; }
+
+        [Required(ErrorMessage = "Ce champ est obligatoire")]
         public string Nom { get; set; }
         public string Prenom { get; set; }
         public string Adresse { get; set; }
         public string Telephone { get; set; }
+
+        [Required(ErrorMessage = "Ce champ est obligatoire")]
         public System.DateTime DateNaissance { get; set; }
         public int Age
         {

@@ -13,6 +13,8 @@ namespace BoVoyage.Models
         [Key]
         public int IdDestination { get; set; }
         public string Continent { get; set; }
+
+        [Required(ErrorMessage = "Ce champ est obligatoire")]
         public string Pays { get; set; }
         public string Region { get; set; }
         public string Description { get; set; }
