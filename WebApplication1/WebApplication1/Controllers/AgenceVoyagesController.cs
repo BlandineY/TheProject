@@ -13,44 +13,44 @@ using BoVoyage.Models;
 
 namespace WebApplication1.Controllers
 {
-    public class ClientsController : ApiController
+    public class AgenceVoyagesController : ApiController
     {
         private BoVoyageDbContext db = new BoVoyageDbContext();
 
-        // GET: api/Clients
-        public IQueryable<Client> GetClients()
+        // GET: api/AgenceVoyages
+        public IQueryable<AgenceVoyage> GetAgenceVoyages()
         {
-            return db.Clients;
+            return db.AgenceVoyages;
         }
 
-        // GET: api/Clients/5
-        [ResponseType(typeof(Client))]
-        public IHttpActionResult GetClient(int id)
+        // GET: api/AgenceVoyages/5
+        [ResponseType(typeof(AgenceVoyage))]
+        public IHttpActionResult GetAgenceVoyage(int id)
         {
-            Client client = db.Clients.Find(id);
-            if (client == null)
+            AgenceVoyage agenceVoyage = db.AgenceVoyages.Find(id);
+            if (agenceVoyage == null)
             {
                 return NotFound();
             }
 
-            return Ok(client);
+            return Ok(agenceVoyage);
         }
 
-        // PUT: api/Clients/5
+        // PUT: api/AgenceVoyages/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutClient(int id, Client client)
+        public IHttpActionResult PutAgenceVoyage(int id, AgenceVoyage agenceVoyage)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != client.IdClient)
+            if (id != agenceVoyage.IdAgenceVoyage)
             {
                 return BadRequest();
             }
 
-            db.Entry(client).State = EntityState.Modified;
+            db.Entry(agenceVoyage).State = EntityState.Modified;
 
             try
             {
@@ -58,7 +58,7 @@ namespace WebApplication1.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ClientExists(id))
+                if (!AgenceVoyageExists(id))
                 {
                     return NotFound();
                 }
@@ -71,35 +71,35 @@ namespace WebApplication1.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Clients
-        [ResponseType(typeof(Client))]
-        public IHttpActionResult PostClient(Client client)
+        // POST: api/AgenceVoyages
+        [ResponseType(typeof(AgenceVoyage))]
+        public IHttpActionResult PostAgenceVoyage(AgenceVoyage agenceVoyage)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Clients.Add(client);
+            db.AgenceVoyages.Add(agenceVoyage);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = client.IdClient }, client);
+            return CreatedAtRoute("DefaultApi", new { id = agenceVoyage.IdAgenceVoyage }, agenceVoyage);
         }
 
-        // DELETE: api/Clients/5
-        [ResponseType(typeof(Client))]
-        public IHttpActionResult DeleteClient(int id)
+        // DELETE: api/AgenceVoyages/5
+        [ResponseType(typeof(AgenceVoyage))]
+        public IHttpActionResult DeleteAgenceVoyage(int id)
         {
-            Client client = db.Clients.Find(id);
-            if (client == null)
+            AgenceVoyage agenceVoyage = db.AgenceVoyages.Find(id);
+            if (agenceVoyage == null)
             {
                 return NotFound();
             }
 
-            db.Clients.Remove(client);
+            db.AgenceVoyages.Remove(agenceVoyage);
             db.SaveChanges();
 
-            return Ok(client);
+            return Ok(agenceVoyage);
         }
 
         protected override void Dispose(bool disposing)
@@ -111,9 +111,9 @@ namespace WebApplication1.Controllers
             base.Dispose(disposing);
         }
 
-        private bool ClientExists(int id)
+        private bool AgenceVoyageExists(int id)
         {
-            return db.Clients.Count(e => e.IdClient == id) > 0;
+            return db.AgenceVoyages.Count(e => e.IdAgenceVoyage == id) > 0;
         }
     }
 }
