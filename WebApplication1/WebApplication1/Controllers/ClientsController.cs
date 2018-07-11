@@ -33,6 +33,7 @@ namespace WebApplication1.Controllers
         }
 
         // PUT: api/Clients/5
+        [Route("{nom}")]
         [ResponseType(typeof(void))]
         public IHttpActionResult PutClient(int id, Client client)
         {
