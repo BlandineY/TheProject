@@ -26,7 +26,5 @@ namespace BoVoyage.Models
         public int IdDestination { get; set; }
         [ForeignKey("IdDestination")]
         public Destination Destination { get; set; }
-
-
     }
 }

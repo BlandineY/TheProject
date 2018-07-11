@@ -17,9 +17,8 @@ namespace BoVoyage.Models
         [Required(ErrorMessage = "Le champ nom est obligatoire")]
         public string NomAgence { get; set; }
 
+        //public int IdVoyage { get; set; }
         //[ForeignKey("IdVoyage")]
         //public Voyage Voyage { get; set; }
-        //public int IdVoyage { get; set; }
-
     }
 }
