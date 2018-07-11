@@ -23,9 +23,10 @@ namespace BoVoyage.Models
         public  Client Client { get; set; }
         public int IdClient { get; set; }
 
-        [ForeignKey("IdParticipant")]
+        //La classe participant nous empêchant de tester certaines fonctionnalités, nous avons choisi de nous passer de la clé étrangère pour l'instant
+        /*[ForeignKey("IdParticipant")]
         public Participant Participant { get; set; }
-        public int IdParticipant { get; set; }
+        public int IdParticipant { get; set; }*/
 
 
         [ForeignKey("IdVoyage")]
