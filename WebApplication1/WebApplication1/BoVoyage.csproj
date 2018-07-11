@@ -207,6 +207,10 @@
     <Compile Include="Migrations\201807100911148_Init.Designer.cs">
       <DependentUpon>201807100911148_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807111325272_ModifClasseParticipant.cs" />
+    <Compile Include="Migrations\201807111325272_ModifClasseParticipant.Designer.cs">
+      <DependentUpon>201807111325272_ModifClasseParticipant.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AssuranceAnnulation.cs" />
     <Compile Include="Models\Voyage.cs" />
@@ -327,6 +331,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201807100911148_Init.resx">
       <DependentUpon>201807100911148_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807111325272_ModifClasseParticipant.resx">
+      <DependentUpon>201807111325272_ModifClasseParticipant.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

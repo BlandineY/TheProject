@@ -11,12 +11,13 @@ namespace BoVoyage.Models
 
     public class Participant : Personne
     {
-        [Key, ForeignKey("DossierReservation")]
+        [Key]
         public int IdParticipant { get; set; }
         public double Reduction { get; set; }
 
+        //[Key, ForeignKey("DossierReservation")]
         //[ForeignKey("IdDossierReservation")]
-        public DossierReservation DossierReservation { get; set; }
+        //public DossierReservation DossierReservation { get; set; }
         //public int IdDossierReservation { get; set; }
     }
 }
