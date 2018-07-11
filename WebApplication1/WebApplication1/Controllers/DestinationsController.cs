@@ -48,10 +48,11 @@ namespace WebApplication1.Controllers
         }
 
         // DELETE: api/Destinations/5
+        [Route("{IdDestination}")]
         [ResponseType(typeof(Destination))]
-        public IHttpActionResult DeleteDestination(int id)
+        public IHttpActionResult DeleteDestination(int IdDestination)
         {
-            Destination destination = db.Destinations.Find(id);
+            Destination destination = db.Destinations.Find(IdDestination);
             if (destination == null)
             {
                 return NotFound();

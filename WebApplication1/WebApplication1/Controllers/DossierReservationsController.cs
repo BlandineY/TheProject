@@ -13,6 +13,7 @@ using BoVoyage.Models;
 
 namespace WebApplication1.Controllers
 {
+    [RoutePrefix("api/DossierReservations")]
     public class DossierReservationsController : ApiController
     {
         private BoVoyageDbContext db = new BoVoyageDbContext();
@@ -24,6 +25,7 @@ namespace WebApplication1.Controllers
         }
 
         // GET: api/DossierReservations/5
+        [Route("{IdDossierReservation}")]
         [ResponseType(typeof(DossierReservation))]
         public IHttpActionResult GetDossierReservation(int id)
         {
@@ -87,6 +89,7 @@ namespace WebApplication1.Controllers
         }
 
         // DELETE: api/DossierReservations/5
+        [Route("{IdAgenceVoyage}")]
         [ResponseType(typeof(DossierReservation))]
         public IHttpActionResult DeleteDossierReservation(int id)
         {
