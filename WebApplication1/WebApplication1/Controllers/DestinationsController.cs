@@ -13,6 +13,7 @@ using BoVoyage.Models;
 
 namespace WebApplication1.Controllers
 {
+    [RoutePrefix("api/Destinations")]
     public class DestinationsController : ApiController
     {
         private BoVoyageDbContext db = new BoVoyageDbContext();
@@ -23,52 +24,12 @@ namespace WebApplication1.Controllers
             return db.Destinations;
         }
 
-        // GET: api/Destinations/5
+        // GET: api/Destinations/pays
+        [Route("{Pays}")]
         [ResponseType(typeof(Destination))]
-        public IHttpActionResult GetDestination(int id)
+        public IQueryable<Destination> GetDestination(string pays)
         {
-            Destination destination = db.Destinations.Find(id);
-            if (destination == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(destination);
-        }
-
-        // PUT: api/Destinations/5
-        [ResponseType(typeof(void))]
-        public IHttpActionResult PutDestination(int id, Destination destination)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != destination.IdDestination)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(destination).State = EntityState.Modified;
-
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!DestinationExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return StatusCode(HttpStatusCode.NoContent);
+            return db.Destinations.Where(x => x.Pays.Contains(pays));
         }
 
         // POST: api/Destinations

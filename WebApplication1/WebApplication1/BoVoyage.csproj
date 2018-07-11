@@ -237,9 +237,9 @@
     <Content Include="Front\Client\afficher-clients.html" />
     <Content Include="Front\Client\chercher-client.html" />
     <Content Include="Front\Destination\afficher-destinations.html" />
-    <Content Include="Front\Participant\afficher-participant.html" />
-    <Content Include="Front\Participant\creer-participant.html" />
+    <Content Include="Front\Destination\chercher-destination.html" />
     <Content Include="Front\Voyage\afficher-voyages.html" />
+    <Content Include="Front\Voyage\chercher-voyage.html" />
     <Content Include="Front\Voyage\creer-voyage.html" />
     <Content Include="Front\Agence\creer-agence.html" />
     <Content Include="Front\Assurance\menu-assurances.html" />
