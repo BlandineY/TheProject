@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>BoVoyageAfficherAssurances</title>
+    <title>BoVoyageAfficherDestinations</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -23,7 +23,7 @@
         <div class="container text-center">
             <h1 style="color: chocolate">BoVoyage</h1>
             <div class="col-md-12">
-                <p style="color: mediumturquoise">Les assurances</p>
+                <p style="color: mediumturquoise">Les destinations</p>
             </div>
         </div>
     </div>
@@ -40,7 +40,9 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="http://localhost:63574/Front/Assurance/menu-assurances.html">Assurances</a></li>
+                    <li class="active"><a href="http://localhost:63574/Front/Destination/menu-destinations.html">Destinations</a></li>
+                    <li><a href="http://localhost:63574/Front/Destination/creer-destinations.html">Créer</a></li>
+                    <!--<li><a href="http://localhost:63574/Front/Destination/chercher-destinations.html">Chercher</a></li>-->
                 </ul>
             </div>
         </div>
@@ -64,13 +66,13 @@
         $(document).ready(function (ev) {
             {
                 $.ajax({
-                    url: "http://localhost:63574/api/assurances/",
+                    url: "http://localhost:63574/api/destinations/",
                     method: 'GET',
                     dataType: 'json',
                     success: function (data) {
                         let ul = $('#resultat');
                         for (let item of data) {
-                            ul.append(`<li>${item.Description}</li>`);
+                            ul.append(`<li>${item.IdDestination} - ${item.Region} ${item.Pays}: ${item.Description}</li>`);
                         }
                     },
                     error: function (message) {

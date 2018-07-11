@@ -230,6 +230,8 @@
     <Content Include="Front\Assurance\afficher-assurances.html" />
     <Content Include="Front\Agence\chercher-agence.html" />
     <Content Include="Front\Agence\afficher-agences.html" />
+    <Content Include="Front\Client\afficher-clients.html" />
+    <Content Include="Front\Destination\afficher-destinations.html" />
     <Content Include="Front\Voyage\creer-voyage.html" />
     <Content Include="Front\Agence\creer-agence.html" />
     <Content Include="Front\Assurance\menu-assurances.html" />
