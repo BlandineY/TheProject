@@ -37,7 +37,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="http://localhost:63574/Front/Client/home.html">Home</a>
+                <a class="navbar-brand" href="http://localhost:63574/Front/home.html">Home</a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
@@ -50,77 +50,81 @@
         </div>
     </nav>
 
-    <div class="form-group">
-        <label class="col-sm-2 control-label">Sexe</label>
-        <div class="col-sm-10">
-            <select class="form-control" id="inputSexe"></select>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label class="col-sm-2 control-label">Nom</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputNom">
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label class="col-sm-2 control-label">Prénom</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputPrenom">
-        </div>
-    </div>
-
-
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" id="inputClient">Est Client
-                </label>
+    <div class="container">
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Sexe</label>
+                <div class="col-sm-10">
+                    <select class="form-control" id="inputSexe"></select>
+                </div>
             </div>
-        </div>
-    </div>
 
-    <div class="form-group">
-        <label class="col-sm-2 control-label">Age</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputAge">
-        </div>
-    </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Nom</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputNom">
+                </div>
+            </div>
 
-    <div class="form-group">
-        <label class="col-sm-2 control-label">Date de naissance</label>
-        <div class="col-sm-10">
-            <input type="date" class="form-control" id="inputDateNaissance">
-        </div>
-    </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Prénom</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputPrenom">
+                </div>
+            </div>
 
-    <div class="form-group">
-        <label class="col-sm-2 control-label">Adresse</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputAdresse">
-        </div>
-    </div>
 
-    <div class="form-group">
-        <label class="col-sm-2 control-label">Téléphone</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputTelephone">
-        </div>
-    </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="inputClient">Est Client
+                        </label>
+                    </div>
+                </div>
+            </div>
 
-    <div class="form-group">
-        <label class="col-sm-2 control-label">Adresse Email</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputEmail">
-        </div>
-    </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Age</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputAge">
+                </div>
+            </div>
 
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-default">Enregistrer</button>
-        </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Date de naissance</label>
+                <div class="col-sm-10">
+                    <input type="date" class="form-control" id="inputDateNaissance">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Adresse</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputAdresse">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Téléphone</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputTelephone">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Adresse Email</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputEmail">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Enregistrer</button>
+                </div>
+            </div>
+        </form>
     </div>
 
 
@@ -131,12 +135,6 @@
     <script>
         $(document).ready(function () {
 
-            $.get("http://localhost:63574/api/client/", function (data) {
-                //console.log(data);
-                for (let item of data) {
-                    $("#inputIdClient").append(`<option value="${item.IDClient}">${item.Nom}</option>`)
-                }
-            });
 
             $("form").submit(function (ev) {
                 let obj = {
@@ -146,22 +144,22 @@
                     DateNaissance: $("#inputDateNaissance").val(),
                     Telephone: $("#inputTelephone").val(),
                     Email: $("#inputEmail").val(),
-                }),
+                };
 
-            $.ajax({
-                url: "http://localhost:63574/api/agencevoyages/" + $("#inputNom").val(),
-                method: 'POST',
-                data: obj,
-                success: function (data) {
-                    let ul = $('#resultat');
-                    alert(`Client enregistré avec l'ID ${data.ID}`);
-                }
-            }),
+                $.ajax({
+                    url: "http://localhost:63574/api/Clients/",
+                    method: 'POST',
+                    data: obj,
+                    success: function (data) {
+                        alert(`Client enregistré avec l'ID ${data.ID}`);
+                    }
+                });
+
                 ev.preventDefault();
-
+            });
         });
-           
-     </script>
+
+    </script>
 
 </body>
 </html>
