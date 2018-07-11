@@ -227,6 +227,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Front\afficher-agence.html" />
     <Content Include="Front\creer-voyage.html" />
     <Content Include="Front\creer-agence.html" />
     <Content Include="Front\menu-assurances.html" />
