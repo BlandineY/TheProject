@@ -245,6 +245,7 @@
     <Content Include="Front\Client\supprimer-client.html" />
     <Content Include="Front\Destination\afficher-destinations.html" />
     <Content Include="Front\Destination\chercher-destination.html" />
+    <Content Include="Front\Destination\supprimer-destination.html" />
     <Content Include="Front\Voyage\afficher-voyages.html" />
     <Content Include="Front\Voyage\chercher-voyage.html" />
     <Content Include="Front\Voyage\creer-voyage.html" />
@@ -255,6 +256,7 @@
     <Content Include="Front\Dossier\menu-dossiers.html" />
     <Content Include="Front\Client\menu-voyageurs.html" />
     <Content Include="Front\Voyage\menu-voyages.html" />
+    <Content Include="Front\Voyage\supprimer-voyage.html" />
     <Content Include="Global.asax" />
     <Content Include="Front\Client\creer-client.html" />
     <Content Include="Front\Destination\creer-destination.html" />

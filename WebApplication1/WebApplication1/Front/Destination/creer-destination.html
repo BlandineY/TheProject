@@ -44,7 +44,7 @@
                     <li class="active"><a href="http://localhost:63574/Front/Destination/menu-destinations.html">Destinations</a></li>
                     <li><a href="http://localhost:63574/Front/Destination/afficher-destinations.html">Afficher</a></li>
                     <li><a href="http://localhost:63574/Front/Destination/chercher-destination.html">Chercher</a></li>
-                    <li><a href="#">Consulter</a></li>
+                    <li><a href="http://localhost:63574/Front/Destination/Supprimer-destination.html">Supprimer</a></li>
                 </ul>
             </div>
         </div>
@@ -115,7 +115,7 @@
                     data: obj,
                     success: function (data) {
 
-                        alert(`Destination enregistrée avec succès`);
+                        alert(`Destination enregistrée avec succès avec l'ID ${data.IdDestination}!`);
                     }
 
 
