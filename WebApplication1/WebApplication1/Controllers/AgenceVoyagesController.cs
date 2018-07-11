@@ -13,6 +13,7 @@ using BoVoyage.Models;
 
 namespace WebApplication1.Controllers
 {
+    [RoutePrefix("api/AgenceVoyages")]
     public class AgenceVoyagesController : ApiController
     {
         private BoVoyageDbContext db = new BoVoyageDbContext();
@@ -23,25 +24,13 @@ namespace WebApplication1.Controllers
             return db.AgenceVoyages;
         }
 
-        // GET: api/AgenceVoyages/5
-        [ResponseType(typeof(AgenceVoyage))]
-        public IHttpActionResult GetAgenceVoyage(int id)
-        {
-            AgenceVoyage agenceVoyage = db.AgenceVoyages.Find(id);
-            if (agenceVoyage == null)
-            {
-                return NotFound();
-            }
 
-            return Ok(agenceVoyage);
-        }
-
-        //GET: api/AgenceVoyages/nom
-        [Route("{nom}")]
+        //GET: api/AgenceVoyages/nomAgence
+        [Route("{nomAgence}")]
         [ResponseType(typeof(AgenceVoyage))]
-        public IQueryable<AgenceVoyage> GetAgenceVoyages(string nom)
+        public IQueryable<AgenceVoyage> GetAgenceVoyages(string nomAgence)
         {
-            return db.AgenceVoyages.Where(x => x.NomAgence.Contains(nom));
+            return db.AgenceVoyages.Where(x => x.NomAgence.Contains(nomAgence));
         }
 
         // PUT: api/AgenceVoyages/5

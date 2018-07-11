@@ -40,9 +40,9 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="http://localhost:63574/Front/Client/menu-clients.html">Voyageurs</a></li>
+                    <li class="active"><a href="http://localhost:63574/Front/Client/menu-voyageurs.html">Voyageurs</a></li>
                     <li><a href="http://localhost:63574/Front/Client/creer-client.html">Créer</a></li>
-                    <!--<li><a href="http://localhost:63574/Front/Client/chercher-client.html">Chercher</a></li>-->
+                    <li><a href="http://localhost:63574/Front/Client/chercher-client.html">Chercher</a></li>
                 </ul>
             </div>
         </div>
@@ -73,21 +73,6 @@
                         let ul = $('#resultat');
                         for (let item of data) {
                             ul.append(`<li> Client ${item.IdClient} - ${item.Nom} ${item.Prenom} - tel: ${item.Telephone} - email: ${item.Email}</li>`);
-                        }
-                    },
-                    error: function (message) {
-                        alert(message);
-                    }
-                });
-
-                $.ajax({
-                    url: "http://localhost:63574/api/participants/",
-                    method: 'GET',
-                    dataType: 'json',
-                    success: function (data) {
-                        let ul = $('#resultat');
-                        for (let item of data) {
-                            ul.append(`<li>${item.IdParticipant} - ${item.Nom} ${item.Prenom} - ${item.Telephone}</li>`);
                         }
                     },
                     error: function (message) {

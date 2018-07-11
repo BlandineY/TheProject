@@ -13,6 +13,7 @@ using BoVoyage.Models;
 
 namespace WebApplication1.Controllers
 {
+    [RoutePrefix("api/Clients")]
     public class ClientsController : ApiController
     {
         private BoVoyageDbContext db = new BoVoyageDbContext();
@@ -23,17 +24,12 @@ namespace WebApplication1.Controllers
             return db.Clients;
         }
 
-        // GET: api/Clients/5
+        // GET: api/Clients/nom
+        [Route("{nom}")]
         [ResponseType(typeof(Client))]
-        public IHttpActionResult GetClient(int id)
+        public IQueryable<Client> GetClient(string nom)
         {
-            Client client = db.Clients.Find(id);
-            if (client == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(client);
+            return db.Clients.Where(x => x.Nom.Contains(nom));
         }
 
         // PUT: api/Clients/5
