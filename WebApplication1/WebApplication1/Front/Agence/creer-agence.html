@@ -43,6 +43,7 @@
                         <li class="active"><a href="http://localhost:63574/Front/Agence/menu-agences.html">Agences</a></li>
                         <li><a href="http://localhost:63574/Front/Agence/afficher-agences.html">Afficher</a></li>
                         <li><a href="http://localhost:63574/Front/Agence/chercher-agence.html">Trouver</a></li>
+                        <li><a href="http://localhost:63574/Front/Agence/supprimer-agence.html">Supprimer</a></li>
                     </ul>
                 </div>
             </div>
@@ -87,11 +88,11 @@
                     };
 
                 $.ajax({
-                    url: "http://localhost:63574/api/agencevoyages/" + $("#inputNom").val(),
+                    url: "http://localhost:63574/api/agencevoyages/",
                     method: 'POST',
                     data: obj,  
                     success: function (data) {
-                        alert(`Agence enregistrée avec succès`)
+                        alert(`Agence ${data.IdAgenceVoyage} enregistrée avec succès`)
                         },
                     
                     

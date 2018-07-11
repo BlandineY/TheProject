@@ -34,6 +34,7 @@ namespace WebApplication1.Controllers
         }
 
         // PUT: api/AgenceVoyages/5
+        [Route("{id}")]
         [ResponseType(typeof(void))]
         public IHttpActionResult PutAgenceVoyage(int id, AgenceVoyage agenceVoyage)
         {

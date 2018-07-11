@@ -23,7 +23,7 @@
         <div class="container text-center">
             <h1 style="color: chocolate">BoVoyage</h1>
             <div class="col-md-12">
-                <p style="color: mediumturquoise">Trouver une agence</p>
+                <p style="color: mediumturquoise">Supprimer une agence</p>
             </div>
         </div>
     </div>
@@ -84,7 +84,7 @@
             $("form").submit(function (ev) {
 
                 $.ajax({
-                    url: "http://localhost:63574/api/agencevoyages/" + $("#inputiD").val(),
+                    url: "http://localhost:63574/api/agencevoyages/" ,
                     method: 'GET',
                     success: function (data) {
                         let ul = $('#resultat');
@@ -101,16 +101,29 @@
         });
 
         $(document).ready(function () {
-            $("form").submit(function (ev) {
+            $.ajax({
+                url: "http://localhost:63574/api/agencevoyages/",
+                method: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    let ul = $('#resultat');
+                    for (let item of data) {
+                        ul.append(`<li> Id: ${item.IdAgenceVoyage} - Raison sociale: ${item.NomAgence}</li>`);
+                    }
+                },
+                error: function (message) {
+                    alert(message);
+                }
+                });
+        
 
+            $("form").submit(function (ev) {
+                
                 $.ajax({
                     url: "http://localhost:63574/api/agencevoyages/" + $("#inputId").val(),
                     method: 'DELETE',
                     success: function (data) {
-                        let ul = $('#resultat');
-                        for (let item of data) {
-                            ul.remove(x->id AgenceVoyage);
-                        }
+                        alert(`Agence ${data.IdAgenceVoyage} supprimée avec succès`)
                     },
                     error: function (message) {
                         alert(message);
@@ -119,6 +132,7 @@
                 ev.preventDefault();
             })
         });
+          
     </script>
 
 </body>

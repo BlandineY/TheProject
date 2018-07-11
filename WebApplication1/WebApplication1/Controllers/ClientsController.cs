@@ -83,10 +83,11 @@ namespace WebApplication1.Controllers
         }
 
         // DELETE: api/Clients/5
+        [Route("{IdClient}")]
         [ResponseType(typeof(Client))]
-        public IHttpActionResult DeleteClient(int id)
+        public IHttpActionResult DeleteClient(int idClient)
         {
-            Client client = db.Clients.Find(id);
+            Client client = db.Clients.Find(idClient);
             if (client == null)
             {
                 return NotFound();

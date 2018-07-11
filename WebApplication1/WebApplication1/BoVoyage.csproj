@@ -237,6 +237,7 @@
     <Content Include="Front\Agence\afficher-agences.html" />
     <Content Include="Front\Client\afficher-clients.html" />
     <Content Include="Front\Client\chercher-client.html" />
+    <Content Include="Front\Client\supprimer-client.html" />
     <Content Include="Front\Destination\afficher-destinations.html" />
     <Content Include="Front\Destination\chercher-destination.html" />
     <Content Include="Front\Voyage\afficher-voyages.html" />
