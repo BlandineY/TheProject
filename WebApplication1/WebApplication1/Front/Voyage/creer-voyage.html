@@ -100,27 +100,41 @@
                 </div>
             </div>
         </form>
+
     </div>
 
     <script>
         $(document).ready(function () {
+            $.get("http://localhost:63574/api/destinations/", function (data) {
+                //console.log(data);
+                for (let item of data) {
+                    $("#inputDestinationID").append(`<option value="${item.IdDestination}">${item.Region}</option>`)
+                }
+            });
 
+            $.get("http://localhost:63574/api/agencevoyages/", function (data) {
+                //console.log(data);
+                for (let item of data) {
+                    $("#inputAgenceID").append(`<option value="${item.IdAgenceVoyage}">${item.NomAgence}</option>`)
+                }
+            });
 
             $("form").submit(function (ev) {
                 let obj = {
                     DateAller: $("#inputDateAller").val(),
-                    DateAller: $("#inputDateRetour").val(),
-                    PlacesDiponbles: $("#inputPlacesDisponibles").val(),
-                    TarifToutCompris: $("#inputTarif").val(),
-                    PrixTotal: $("#inputPrix").val(),
+                    DateRetour: $("#inputDateRetour").val(),
+                    PlacesDisponibles: $("#inputPlacesDisponibles").val(),
+                    TarifToutCompris: $("#inputTarif").val(),                    
+                    IdAgenceVoyage: $("#inputAgenceID").val(),
+                    IdDestination: $("#inputDestinationID").val(),
                 };
 
                 $.ajax({
-                    url: "http://localhost:63574/api/Voyages/",
+                    url: "http://localhost:63574/api/voyages/",
                     method: 'POST',
                     data: obj,
                     success: function (data) {
-                        alert(`Voyage enregistré avec l'ID ${data.ID}`);
+                        alert(`Voyage enregistré`);
                     }
                 });
 
