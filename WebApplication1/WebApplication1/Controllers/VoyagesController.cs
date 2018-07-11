@@ -13,6 +13,7 @@ using BoVoyage.Models;
 
 namespace WebApplication1.Controllers
 {
+    [RoutePrefix("api/Voyages")]
     public class VoyagesController : ApiController
     {
         private BoVoyageDbContext db = new BoVoyageDbContext();
@@ -25,9 +26,9 @@ namespace WebApplication1.Controllers
 
         // GET: api/Voyages/5
         [ResponseType(typeof(Voyage))]
-        public IHttpActionResult GetVoyage(int id)
+        public IHttpActionResult GetVoyage(int idVoyage)
         {
-            Voyage voyage = db.Voyages.Find(id);
+            Voyage voyage = db.Voyages.Find(idVoyage);
             if (voyage == null)
             {
                 return NotFound();
