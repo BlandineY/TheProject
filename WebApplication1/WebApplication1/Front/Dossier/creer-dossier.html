@@ -77,10 +77,13 @@
             </div>
 
             <div class="form-group">
-                <label class="col-sm-2 control-label">Etat dossier</label>
-                <div class="col-sm-4">
-                    <select class="form-control" id="inputEtatDossierReservation"></select>
-                </div>
+                <label for="EtatDossier">Etat du dossier</label>
+                <select multiple class="form-control" id="inputEtatDossierReservation">
+                    <option>En cours</option>
+                    <option>En attente</option>
+                    <option>Refusée</option>
+                    <option>Acceptée</option>
+                </select>
             </div>
 
             <div class="form-group">
@@ -112,11 +115,23 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function () {
+            $.get("http://localhost:63574/api/clients/", function (data) {
+                //console.log(data);
+                for (let item of data) {
+                    $("#inputIdClient").append(`<option value="${item.IdClient}">${item.Nom}</option>`)
+                }
+            });
 
+            $.get("http://localhost:63574/api/voyages/", function (data) {
+                //console.log(data);
+                for (let item of data) {
+                    $("#inputIdVoyage").append(`<option value="${item.IdVoyage}">${item.IdDestination}</option>`)
+                }
+            });
 
             $("form").submit(function (ev) {
                 let obj = {
-
+                    IdClient: $("#inputIdClient").val(),
                     NombreParticipants: $("#inputNbParticipant").val(),
                     PrixTotal: $("#inputPrix").val(),
 
