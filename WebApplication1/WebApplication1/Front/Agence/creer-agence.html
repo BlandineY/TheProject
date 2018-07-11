@@ -8,6 +8,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
+        .navbar {
+            margin-bottom: 50px;
+            border-radius: 0;
+        }
         .jumbotron {
             margin-bottom: 10%;
         }
@@ -22,6 +26,27 @@
                 <p style="color: mediumturquoise">Créer une agence</p>
             </div>
         </div>
+
+
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="http://localhost:63574/Front/home.html">Home</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="http://localhost:63574/Front/Agence/menu-agences.html">Agences</a></li>
+                        <li><a href="http://localhost:63574/Front/Agence/afficher-agences.html">Afficher</a></li>
+                        <li><a href="http://localhost:63574/Front/Agence/chercher-agence.html">Trouver</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
         <form class="form-horizontal" role="form">
             <div class="form-group">
@@ -66,14 +91,10 @@
                     method: 'POST',
                     data: obj,  
                     success: function (data) {
-                        let ul = $('#resultat');
-                        for (let item of data) {
-                            ul.append(`<li>${item.Nom}</li>`);
-                        }
-                    },
-                    error: function (message) {
-                        console.log(message);
-                    }
+                        alert(`Agence enregistrée avec succès`)
+                        },
+                    
+                    
                 });
                 ev.preventDefault();
             })

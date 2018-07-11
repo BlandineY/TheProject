@@ -116,12 +116,10 @@
 
             $("form").submit(function (ev) {
                 let obj = {
-                    //Client: $("#inputClient").val(),
-                    //Voyage: $("#inputVoyage").val(),
+
                     NombreParticipants: $("#inputNbParticipant").val(),
-                    //EtatDossier: $("#inputEtatDossierReservation").val(),
                     PrixTotal: $("#inputPrix").val(),
-                    //Assurance: $("#inputAssurance").val(),
+
                 };
 
                 $.ajax({
@@ -129,7 +127,7 @@
                     method: 'POST',
                     data: obj,
                     success: function (data) {
-                        alert(`Dossier enregistré avec l'ID ${data.ID}`);
+                        alert(`Dossier enregistré avec succès`);
                     }
                 });
 
