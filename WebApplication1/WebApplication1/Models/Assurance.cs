@@ -12,5 +12,6 @@ namespace BoVoyage.Models
     {
         [Key]
         public int IdAssurance { get; set; }
+        public string Description { get; set; }
     }
 }
