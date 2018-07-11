@@ -84,10 +84,11 @@ namespace WebApplication1.Controllers
         }
 
         // DELETE: api/AgenceVoyages/5
+        [Route("{IdAgenceVoyage}")]
         [ResponseType(typeof(AgenceVoyage))]
-        public IHttpActionResult DeleteAgenceVoyage(int id)
+        public IHttpActionResult DeleteAgenceVoyage(int IdAgenceVoyage)
         {
-            AgenceVoyage agenceVoyage = db.AgenceVoyages.Find(id);
+            AgenceVoyage agenceVoyage = db.AgenceVoyages.Find(IdAgenceVoyage);
             if (agenceVoyage == null)
             {
                 return NotFound();

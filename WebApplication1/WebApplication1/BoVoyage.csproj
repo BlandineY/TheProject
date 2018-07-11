@@ -231,6 +231,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Front\Agence\supprimer-agence.html" />
     <Content Include="Front\Assurance\afficher-assurances.html" />
     <Content Include="Front\Agence\chercher-agence.html" />
     <Content Include="Front\Agence\afficher-agences.html" />
