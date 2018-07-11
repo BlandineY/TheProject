@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>BoVoyageAfficherClients</title>
+    <title>BoVoyageAfficherVoyages</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -23,7 +23,7 @@
         <div class="container text-center">
             <h1 style="color: chocolate">BoVoyage</h1>
             <div class="col-md-12">
-                <p style="color: mediumturquoise">Les clients</p>
+                <p style="color: mediumturquoise">Les voyages</p>
             </div>
         </div>
     </div>
@@ -40,9 +40,9 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="http://localhost:63574/Front/Client/menu-clients.html">Voyageurs</a></li>
-                    <li><a href="http://localhost:63574/Front/Client/creer-client.html">Créer</a></li>
-                    <!--<li><a href="http://localhost:63574/Front/Client/chercher-client.html">Chercher</a></li>-->
+                    <li class="active"><a href="http://localhost:63574/Front/Voyage/menu-voyages.html">Voyages</a></li>
+                    <li><a href="http://localhost:63574/Front/Voyage/creer-voyage.html">Créer</a></li>
+                    <!--<li><a href="http://localhost:63574/Front/Voyage/chercher-voyage.html">Chercher</a></li>-->
                 </ul>
             </div>
         </div>
@@ -66,28 +66,13 @@
         $(document).ready(function (ev) {
             {
                 $.ajax({
-                    url: "http://localhost:63574/api/clients/",
+                    url: "http://localhost:63574/api/voyages/",
                     method: 'GET',
                     dataType: 'json',
                     success: function (data) {
                         let ul = $('#resultat');
                         for (let item of data) {
-                            ul.append(`<li> Client ${item.IdClient} - ${item.Nom} ${item.Prenom} - tel: ${item.Telephone} - email: ${item.Email}</li>`);
-                        }
-                    },
-                    error: function (message) {
-                        alert(message);
-                    }
-                });
-
-                $.ajax({
-                    url: "http://localhost:63574/api/participants/",
-                    method: 'GET',
-                    dataType: 'json',
-                    success: function (data) {
-                        let ul = $('#resultat');
-                        for (let item of data) {
-                            ul.append(`<li>${item.IdParticipant} - ${item.Nom} ${item.Prenom} - ${item.Telephone}</li>`);
+                            ul.append(`<li>Voyage ${item.IdVoyage} - Du ${item.DateAller} au ${item.DateRetour} pour ${item.PlacesDisponibles} personnes à ${item.IdDestination}: ${item.TarifToutCompris}euros</li>`);
                         }
                     },
                     error: function (message) {

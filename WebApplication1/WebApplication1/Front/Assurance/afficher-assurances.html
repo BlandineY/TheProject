@@ -70,7 +70,7 @@
                     success: function (data) {
                         let ul = $('#resultat');
                         for (let item of data) {
-                            ul.append(`<li>${item.Description}</li>`);
+                            ul.append(`<li>Assurance n°: ${item.IdAssurance} - ${item.Description}</li>`);
                         }
                     },
                     error: function (message) {

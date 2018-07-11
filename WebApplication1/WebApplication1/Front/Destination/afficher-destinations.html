@@ -72,7 +72,7 @@
                     success: function (data) {
                         let ul = $('#resultat');
                         for (let item of data) {
-                            ul.append(`<li>${item.IdDestination} - ${item.Region} ${item.Pays}: ${item.Description}</li>`);
+                            ul.append(`<li>Destination ${item.IdDestination} - ${item.Region} ${item.Pays}: ${item.Description}</li>`);
                         }
                     },
                     error: function (message) {

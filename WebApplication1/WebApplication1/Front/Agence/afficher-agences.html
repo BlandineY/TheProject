@@ -72,7 +72,7 @@
                     success: function (data) {
                         let ul = $('#resultat');
                         for (let item of data) {
-                            ul.append(`<li>${item.NomAgence}</li>`);
+                            ul.append(`<li> Id: ${item.IdAgenceVoyage} - Raison sociale: ${item.NomAgence}</li>`);
                         }
                     },
                     error: function (message) {
